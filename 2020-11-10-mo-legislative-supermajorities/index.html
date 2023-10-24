@@ -1,0 +1,70 @@
+<%= await t.include("lib/_head.html") %>
+
+<% if (COPY.labels.top_label) { %>
+  <h1 class="label"><%= t.smarty(COPY.labels.top_label) %></h1>
+  <% } %>
+
+<% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<p class="chatter"><%= t.smarty(COPY.labels.subhed) %></p>
+<% } %>
+
+<div class="key">
+  <div class="key-item"><b class="party r"></b><label>Republican</label></div>
+  <div class="key-item"><b class="party d"></b><label>Democratic</label></div>
+  <div class="key-item"><b class="party none"></b><label>None</label></div>
+</div>
+
+<div class="graphic" id="table-graphic">
+  <table id="state-table" role="table">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">
+          <div class="sorter"><div class="icon"></div></div>
+          <div class="header"></div>
+        </th>
+        <% ['2001','2003','2005','2007','2009','2011','2013','2015','2017','2019','2021'].forEach(function (year) { %>
+          <th role="columnheader">
+            <div class="sorter"><div class="icon"></div></div>
+            <div class="header"><%= year %></div>
+          </th>
+        <% }) %>
+        
+      </tr>
+    </thead>
+
+    <% COPY.data.forEach(function(row) { %>
+    <tr class="state>" role="row">
+      <td role="cell" class="category" data-title="<%= COPY.labels.hdr_state %>"><%= row.name %></td>
+      <% ['2001','2003','2005','2007','2009','2011','2013','2015','2017','2019','2021'].forEach(function (year) { %>
+      <td role="cell" class="<%= 'party ' + t.classify(row[year]) %>" data-title="<%= year %>">&bull;</td>
+      <% }) %>
+    </tr>
+  <% }) %>
+
+  </table>
+</div>
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<div class="footer">
+  <% if (COPY.labels.source) { %>
+  <p>Source: <%= COPY.labels.source %></p>
+  <% } %>
+
+  <% if (COPY.labels.credit) { %>
+  <p>Credit: <%= COPY.labels.credit %></p>
+  <% } %>
+</div>
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

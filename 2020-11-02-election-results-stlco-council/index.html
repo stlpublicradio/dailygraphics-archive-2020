@@ -1,0 +1,126 @@
+<%= await t.include("lib/_head.html") %>
+
+<!-- <% if (COPY.labels.headline) { %>
+<h1><%= t.smarty(COPY.labels.headline) %></h1>
+<% } %>
+
+<% if (COPY.labels.subhed) { %>
+<h2><%= t.smarty(COPY.labels.subhed) %></h2>
+<% } %> -->
+
+<h5 class="label office">St. Louis County Council &mdash; Dist. 6</h5>
+
+<div class="results-table">
+  <div class="thead">
+    <div class="tr">
+      <div class="th name" colspan="2">Candidate</div>
+      <div class="th percentage">Percent</div>
+      <div class="th votes">Votes</div>
+    </div>
+  </div>
+
+    <div class="tbody">
+      <% COPY.stlco_council_results.forEach(function(row) { if (row.dist == '6') {%>
+      <div class="row-wrapper">
+      <div class="tr candidate <%= t.classify(row.party) %> <% if (row.winner) {%>winner<%}%>">
+      <div class="td spacer"><div class="bar-container">
+        <div class="bar" style="width:<%= row.pct %>;"></div>
+      </div></div>
+      <div class="td name"><%= row.label %> (<%= row.party %>) <% if (row.inc) {%><span class="incumbent-icon">&bull;</span><% } %></div>
+      <div class="td percentage"><%= row.pct %></div>
+      <div class="td votes"><%= t.comma(row.votes) %></div>
+      </div>
+    </div>
+      <% }}) %>
+    
+  </div>
+</div>
+
+<div class="footnote">
+  <span class="left incumbent-text"><div>&bull; &ndash; Incumbent</div></span>
+  <span class="right"><%= COPY.labels.stlco_council_6_reporting %></span>
+</div>
+
+<h5 class="label office">St. Louis County Council &mdash; Dist. 2</h5>
+
+<div class="results-table">
+  <div class="thead">
+    <div class="tr">
+      <div class="th name" colspan="2">Candidate</div>
+      <div class="th percentage">Percent</div>
+      <div class="th votes">Votes</div>
+    </div>
+  </div>
+
+    <div class="tbody">
+      <% COPY.stlco_council_results.forEach(function(row) { if (row.dist == '2') {%>
+        <div class="row-wrapper">
+      <div class="tr candidate <%= t.classify(row.party) %> <% if (row.winner) {%>winner<%}%>">
+      <div class="td spacer"><div class="bar-container">
+        <div class="bar" style="width:<%= row.pct %>;"></div>
+      </div></div>
+      <div class="td name"><%= row.label %> (<%= row.party %>) <% if (row.inc) {%><span class="incumbent-icon">&bull;</span><% } %></div>
+      <div class="td percentage"><%= row.pct %></div>
+      <div class="td votes"><%= t.comma(row.votes) %></div>
+      </div>
+    </div>
+      <% }}) %>
+    
+  </div>
+</div>
+
+<div class="footnote">
+  <span class="left incumbent-text"><div>&bull; &ndash; Incumbent</div></span>
+  <span class="right"><%= COPY.labels.stlco_council_2_reporting %></span>
+</div>
+
+<h5 class="label office">St. Louis County Council &mdash; Dist. 4</h5>
+
+<div class="results-table">
+  <div class="thead">
+    <div class="tr">
+      <div class="th name" colspan="2">Candidate</div>
+      <div class="th percentage">Percent</div>
+      <div class="th votes">Votes</div>
+    </div>
+  </div>
+
+    <div class="tbody">
+      <% COPY.stlco_council_results.forEach(function(row) { if (row.dist == '4') {%>
+        <div class="row-wrapper">
+      <div class="tr candidate <%= t.classify(row.party) %> <% if (row.winner) {%>winner<%}%>">
+      <div class="td spacer"><div class="bar-container">
+        <div class="bar" style="width:<%= row.pct %>;"></div>
+      </div></div>
+      <div class="td name"><%= row.label %> (<%= row.party %>) <% if (row.inc) {%><span class="incumbent-icon">&bull;</span><% } %></div>
+      <div class="td percentage"><%= row.pct %></div>
+      <div class="td votes"><%= t.comma(row.votes) %></div>
+      </div>
+    </div>
+      <% }}) %>
+    
+  </div>
+</div>
+
+<div class="footnote">
+  <span class="left incumbent-text"><div>No incumbent</div></span>
+  <span class="right"><%= COPY.labels.stlco_council_4_reporting %></span>
+</div>
+
+
+<% if (COPY.labels.footnote) { %>
+<div class="footnotes">
+  <h4>Notes</h4>
+  <p><%= COPY.labels.footnote %></p>
+</div>
+<% } %>
+
+<!-- <div class="footer">
+  <% if (COPY.labels.source) { %><p>Source: <%= COPY.labels.source %></p><% } %>
+  <% if (COPY.labels.credit) { %><p>Credit: <%= COPY.labels.credit %></p><% } %>
+</div> -->
+
+
+<script src="./graphic.js"></script>
+
+<%= await t.include("lib/_foot.html") %>

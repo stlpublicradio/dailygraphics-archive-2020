@@ -1,0 +1,268 @@
+@import "./lib/base";
+
+
+@import "./lib/base";
+
+
+
+@rep: #d61f21;
+@rep-winner: #F8D6D4;
+@dem: #237bbd;
+@dem-winner: #D5E5F2;
+@green: #15b16e;
+@green-winner: #D7F0E2;
+@lib: #15b16e;
+@lib-winner: #D7F0E2;
+@con: #15b16e;
+@con-winner: #D7F0E2;
+@writein: #15b16e;
+@writein-winner: #D7F0E2;
+@no: #d61f21;
+@no-winner: #F8D6D4;
+@yes: #15b16e;
+@yes-winner: #D7F0E2;
+
+body {
+    .sans-serif();
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.label.office {
+    font-size: 1.1em;
+    font-weight: 800;
+    text-transform: unset;
+    color: #000;
+
+}
+
+.results-table {
+    font-size: .9em;
+    display: block;
+    width: 100%;
+
+    border-collapse: collapse;
+
+
+    .th,
+    .td {
+        text-align: right;
+        flex: 0 0 4em;
+
+        &:last-child {
+            padding-right: 8px;
+        }
+    }
+
+    .th.votes,
+    .td.votes {
+        flex: 0 0 7em;
+    }
+
+    .row-wrapper {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .spacer {
+        padding: 0;
+        padding-right: .6em;
+        flex: 0;
+
+        .bar-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+
+        }
+    }
+
+    .name {
+        flex: 1;
+        text-align: left;
+
+    }
+}
+
+.thead {
+    .sans-serif-condensed();
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+    .tr {
+        position: relative;
+        flex: 0 0 100%;
+        display: flex;
+
+        margin-bottom: 6px;
+    }
+}
+
+.tbody {
+
+    color: #666;
+
+    .td {
+        padding-top: 1.44em;
+        padding-bottom: .6em;
+    }
+
+    .tr {
+        position: relative;
+        flex: 0 0 100%;
+        display: flex;
+
+        background: #efefef;
+
+        .bar {
+            height: 0.6em;
+        }
+
+        ;
+
+        &.winner {
+            .td {
+                color: #000;
+                font-weight: 600;
+            }
+
+        }
+
+        &.republican {
+
+            &.winner {
+                background: @rep-winner;
+            }
+
+            .bar {
+                background: @rep;
+            }
+        }
+
+        &.democratic {
+
+            &.winner {
+                background: @dem-winner;
+            }
+
+            .bar {
+                background: @dem;
+            }
+        }
+
+        &.green {
+
+            &.winner {
+                background: @green-winner;
+            }
+
+            .bar {
+                background: @green;
+            }
+        }
+
+        &.libertarian {
+
+            &.winner {
+                background: @lib-winner;
+            }
+
+            .bar {
+                background: @lib;
+            }
+        }
+
+        &.constitution {
+
+            &.winner {
+                background: @con-winner;
+            }
+
+            .bar {
+                background: @con;
+            }
+        }
+
+        &.write-in {
+
+            &.winner {
+                background: @writein-winner;
+            }
+
+            .bar {
+                background: @writein;
+            }
+        }
+
+        &.yes {
+
+            &.winner {
+                background: @yes-winner;
+            }
+
+            .bar {
+                background: @yes;
+            }
+        }
+
+        &.no {
+
+            &.winner {
+                background: @no-winner;
+            }
+
+            .bar {
+                background: @no;
+            }
+        }
+
+    }
+}
+
+.thead,
+.tbody {
+    display: block;
+    columns: 1;
+}
+
+
+
+.footnote {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    margin-bottom: 30px;
+
+
+    .right {
+        text-align: right;
+    }
+}
+
+svg {
+    width: 100%;
+}
+
+// .republican {
+//     fill: @rep;
+// }
+
+// .democratic {
+//     fill: @dem;
+// }
+
+.none {
+    fill: #efefef;
+}
+
+path {
+    stroke: #efefef;
+    stroke-width: .2px;
+    vector-effect: non-scaling-stroke;
+}
+
